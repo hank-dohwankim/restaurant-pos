@@ -13,13 +13,12 @@
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
-
   <properties>
 
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <!-- Generic properties -->
-    <java.version>1.6</java.version>
+    <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -30,7 +29,7 @@
 
 
     <!-- Spring -->
-    <spring-framework.version>3.2.3.RELEASE</spring-framework.version>
+    <spring-framework.version>4.3.3.RELEASE</spring-framework.version>
 
     <!-- Hibernate / JPA -->
     <hibernate.version>4.2.1.Final</hibernate.version>
@@ -232,12 +231,11 @@
           <artifactId>tomcat7-maven-plugin</artifactId>
           <version>2.2</version>
           <configuration>
-            <port>8000</port>
+            <port>8080</port>
           </configuration>
         </plugin>
-
-
       </plugins>
     </pluginManagement>
   </build>
 </project>
+

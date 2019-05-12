@@ -1,11 +1,11 @@
 package com.system.restaurant.service;
 
-import com.system.restaurant.domain.Menu;
-import com.system.restaurant.repository.MenuRepository;
-import org.springframework.stereotype.Service;
+        import com.system.restaurant.domain.Menu;
+        import com.system.restaurant.repository.MenuRepository;
+        import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-import java.util.ArrayList;
+        import javax.annotation.Resource;
+        import java.util.ArrayList;
 
 @Service
 public class MenuService {
@@ -14,7 +14,7 @@ public class MenuService {
     MenuRepository menuRepository;
 
     public ArrayList<Menu> menulist() {
-      return menuRepository.menulist();
+        return menuRepository.menulist();
     }
 
     public Menu findOne(int id) {
