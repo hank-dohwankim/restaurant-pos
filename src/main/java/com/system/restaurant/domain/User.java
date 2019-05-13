@@ -1,5 +1,6 @@
 package com.system.restaurant.domain;
 
+
 public class User {
 
     private int user_id;
@@ -8,6 +9,16 @@ public class User {
     private String password;
     private String email;
     private String user_type;
+
+
+    public User(int user_id, String name, String login, String password, String email, String user_type) {
+        this.user_id = user_id;
+        this.name = name;
+        this.login = login;
+        this.password = password;
+        this.email = email;
+        this.user_type = user_type;
+    }
 
     public int getUser_id() {
         return user_id;
