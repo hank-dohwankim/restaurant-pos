@@ -1,6 +1,5 @@
 package com.system.restaurant.domain;
 
-
 import java.util.List;
 
 final class Order {
@@ -12,7 +11,6 @@ final class Order {
     private List<User> user;
     private String message;
     private String cooking_status;
-
 
     public Order(OrderDetail orderDetail, int order_id, int table_no, String message, String cooking_status, List<User> user) {
         this.orderDetail = orderDetail;

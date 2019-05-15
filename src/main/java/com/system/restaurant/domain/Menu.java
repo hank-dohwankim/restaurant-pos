@@ -8,6 +8,8 @@ public class Menu {
     private float menu_price;
     private int cooking_time;
 
+    public Menu(){}
+
     public Menu(int menu_id, String menu_name, float menu_price, int cooking_time) {
         this.menu_id = menu_id;
         this.menu_name = menu_name;

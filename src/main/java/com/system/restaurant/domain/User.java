@@ -1,6 +1,5 @@
 package com.system.restaurant.domain;
 
-
 public class User {
 
     private int user_id;
