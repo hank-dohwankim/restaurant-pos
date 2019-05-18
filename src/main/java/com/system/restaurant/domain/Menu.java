@@ -10,12 +10,12 @@ public class Menu {
 
     public Menu(){}
 
-    public Menu(int menu_id, String menu_name, float menu_price, int cooking_time) {
-        this.menu_id = menu_id;
-        this.menu_name = menu_name;
-        this.menu_price = menu_price;
-        this.cooking_time = cooking_time;
-    }
+//    public Menu(int menu_id, String menu_name, float menu_price, int cooking_time) {
+//        this.menu_id = menu_id;
+//        this.menu_name = menu_name;
+//        this.menu_price = menu_price;
+//        this.cooking_time = cooking_time;
+//    }
 
     public int getMenu_id() {
         return menu_id;
