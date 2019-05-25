@@ -8,14 +8,14 @@ public class Menu {
     private float menu_price;
     private int cooking_time;
 
-    public Menu(){}
+    public Menu() {}
 
-//    public Menu(int menu_id, String menu_name, float menu_price, int cooking_time) {
-//        this.menu_id = menu_id;
-//        this.menu_name = menu_name;
-//        this.menu_price = menu_price;
-//        this.cooking_time = cooking_time;
-//    }
+    public Menu(int menu_id, String menu_name, float menu_price, int cooking_time) {
+        this.menu_id = menu_id;
+        this.menu_name = menu_name;
+        this.menu_price = menu_price;
+        this.cooking_time = cooking_time;
+    }
 
     public int getMenu_id() {
         return menu_id;
@@ -47,5 +47,15 @@ public class Menu {
 
     public void setCooking_time(int cooking_time) {
         this.cooking_time = cooking_time;
+    }
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "menu_id=" + menu_id +
+                ", menu_name='" + menu_name + '\'' +
+                ", menu_price=" + menu_price +
+                ", cooking_time=" + cooking_time +
+                '}';
     }
 }

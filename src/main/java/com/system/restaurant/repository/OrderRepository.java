@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public interface OrderRepository {
     ArrayList<Order> orderlist();
 
-    Order findOne(int id);
+    Order findById(int id);
 
     int post(Order orderdata);
 

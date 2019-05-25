@@ -97,50 +97,11 @@
         <span> <a href="check_out.html">3. Check Out</a></span>
     </div>
 
-    <button class="test_order">test order </button>
-    <script>
-    $('.test_order').on('click', function() {
-
-var order_obj =
- {
-     "order_id": 1,
-     "waiter": "mike",
-     "message": "test message",
-     "cooking_status": "ready",
-     "order_detail": [
-        {
-       "order_detail_id": 1,
-       "order_id": 1,
-       "menu_id": 1,
-       "menu_price": 100},
-       {
-       "order_detail_id": 1,
-       "order_id": 1,
-       "menu_id": 1,
-       "menu_price": 100
-       }
-     ]
- };
-
-   $.ajax({
-       type: "POST",
-       url: "/orders",
-       data: JSON.stringify(order_obj),
-       dataType: "json", contentType: 'application/json',
-       success: function (response) {
-           debugger
-       }
-   });
-
-
-    });
-    </script>
-    <h2>Kitchen System Page</h2>
+    <h2>Kitchen Page</h2>
     <table class="table">
         <thead>
         <tr>
-<!--            <th>Table No.</th>-->
-<!--            <th>Order No.</th>-->
+            <th>Order No.</th>
             <th>Waiter</th>
             <th>Order</th>
             <th>Message</th>
@@ -149,36 +110,38 @@ var order_obj =
         </tr>
         </thead>
         <tbody>
-        <tr>
-
             <c:forEach items = "${orderlist}" var = "data">
-<!--            <td>$[id]</td>-->
-            <td>${data.order_id}</td>
-            <td>${data.waiter}</td>
-            <td>${data.message}</td>
-<!--            <td>${food_frice}</td>-->
-            <td>
-                <select id="cooking_status">
-                <option value="Not_started">Not Started</option>
-                <option value="Started">Started</option>
-                <option value="Completed">Completed</option>
-                <option value="Served">Served</option>
-                <option value="Cancel">Cancel</option>
-                </select>
-            </td>
+                <tr id="mycell">
+                    <td>${data.order_id}</td>
+                    <td>${data.user_name}</td>
+                    <td>${data.menu_name}</td>
+                    <td>${data.message}</td>
+                    <td>
+                        <select id="cooking_status" onChange="if(this.selectedIndex!=0)
+                        document.getElementById('mycell').bgColor=this.options[this.selectedIndex].value">
+
+                        <option value="${data.cooking_status}">${data.cooking_status}</option>
+                        <option value="">Not Started</option>
+                        <option value="E0FFFF">Started</option>
+                        <option value="strike">Cancel</option>
+                        </select>
+                    </td>
+                </tr>
             </c:forEach>
-        </tr>
+            <script>
+                var cssGreen = {'background-color':'#6DFF6D'};
+
+            </script>
         </tbody>
     </table>
 </div>
-
+<%-- 
 <div class="container">
     <form action="#" method="post">
 
         <table class="table">
             <thead>
             <tr>
-<!--                <th>Table No.</th>-->
                 <th>Waiter</th>
                 <th>Order</th>
                 <th>Message</th>
@@ -231,6 +194,6 @@ var order_obj =
         </table>
         <button class="button_order">Order</button>
     </form>
-</div>
+</div> --%>
 </body>
 </html>

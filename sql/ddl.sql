@@ -2,10 +2,10 @@ CREATE DATABASE `restaurant` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8
 
 CREATE TABLE `tbl_user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
-  `login` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `email` varchar(45) DEFAULT NULL,
+  `user_name` varchar(45) NOT NULL,
+  `user_login` varchar(45) NOT NULL,
+  `user_password` varchar(45) NOT NULL,
+  `user_email` varchar(45) DEFAULT NULL,
   `user_type` enum('waiter','chef','admin') NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `login_UNIQUE` (`login`),
@@ -39,11 +39,10 @@ CREATE TABLE `tbl_menu` (
 
 CREATE TABLE `tbl_order` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT,
-  `table_no` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `message` varchar(255) NOT NULL,
   `total_cost` decimal(5,2) NOT NULL,
-  `cooking_status` enum('not started','cookng','served','cancel') NOT NULL,
+  `cooking_status` enum('Not started','Started','Canceled') NOT NULL,
   PRIMARY KEY (`order_id`),
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `order_user` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`)

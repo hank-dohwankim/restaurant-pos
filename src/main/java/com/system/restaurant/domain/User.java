@@ -1,22 +1,23 @@
 package com.system.restaurant.domain;
 
+
+import java.util.List;
+
 public class User {
 
     private int user_id;
     private String name;
     private String login;
+    private List<Phone> phone;
     private String password;
     private String email;
     private String user_type;
 
 
-    public User(int user_id, String name, String login, String password, String email, String user_type) {
-        this.user_id = user_id;
+    public User(String name, String login, String password) {
         this.name = name;
         this.login = login;
         this.password = password;
-        this.email = email;
-        this.user_type = user_type;
     }
 
     public int getUser_id() {
@@ -65,5 +66,10 @@ public class User {
 
     public void setUser_type(String user_type) {
         this.user_type = user_type;
+    }
+
+    private class Phone {
+        private String Phone1;
+        private String Phone2;
     }
 }

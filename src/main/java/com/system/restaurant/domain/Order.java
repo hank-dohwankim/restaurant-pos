@@ -5,15 +5,17 @@ package com.system.restaurant.domain;
 public class Order {
 
     private int order_id;
-    private String waiter;
+    private String user_name;
+    private String menu_name;
     private String message;
     private String cooking_status;
 
     public Order() {}
 
-    public Order(int order_id, String waiter, String message, String cooking_status) {
+    public Order(int order_id, String user_name, String menu_name, String message, String cooking_status) {
         this.order_id = order_id;
-        this.waiter = waiter;
+        this.user_name = user_name;
+        this.menu_name = menu_name;
         this.message = message;
         this.cooking_status = cooking_status;
     }
@@ -26,12 +28,20 @@ public class Order {
         this.order_id = order_id;
     }
 
-    public String getWaiter() {
-        return waiter;
+    public String getUser_name() {
+        return user_name;
     }
 
-    public void setWaiter(String waiter) {
-        this.waiter = waiter;
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
+    public String getMenu_name() {
+        return menu_name;
+    }
+
+    public void setMenu_name(String menu_name) {
+        this.menu_name = menu_name;
     }
 
     public String getMessage() {
@@ -42,11 +52,11 @@ public class Order {
         this.message = message;
     }
 
-    public String getcooking_status() {
+    public String getCooking_status() {
         return cooking_status;
     }
 
-    public void setcooking_status(String cooking_status) {
+    public void setCooking_status(String cooking_status) {
         this.cooking_status = cooking_status;
     }
 
@@ -54,9 +64,11 @@ public class Order {
     public String toString() {
         return "Order{" +
                 "order_id=" + order_id +
-                ", waiter='" + waiter + '\'' +
+                ", user_name='" + user_name + '\'' +
+                ", menu_name='" + menu_name + '\'' +
                 ", message='" + message + '\'' +
                 ", cooking_status='" + cooking_status + '\'' +
                 '}';
     }
 }
+
