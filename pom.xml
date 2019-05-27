@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.system</groupId>
@@ -191,12 +191,21 @@
       <version>2.0.4</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.8</version>
+      <scope>provided</scope>
+    </dependency>
 
     <dependency>
       <groupId>org.lazyluke</groupId>
       <artifactId>log4jdbc-remix</artifactId>
       <version>0.2.7</version>
     </dependency>
+
+
 
   </dependencies>
 
@@ -210,7 +219,7 @@
         <version>2.2</version>
         <configuration>
           <path>/</path>
-          <port>8000</port>
+          <port>8080</port>
         </configuration>
       </plugin>
     </plugins>
