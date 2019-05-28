@@ -9,20 +9,15 @@ public class Order {
     private int order_id;
     private String user_name;
     private String user_id;
-    private String menu_name;
-    private String message;
     private float total_cost;
     private String cooking_status;
 
     public Order() {}
 
-    public Order(int order_id, String user_name, String user_id, String menu_name, String message, float total_cost, String cooking_status) {
-
+    public Order(int order_id, String user_name, String user_id, float total_cost, String cooking_status) {
         this.order_id = order_id;
         this.user_name = user_name;
         this.user_id = user_id;
-        this.menu_name = menu_name;
-        this.message = message;
         this.total_cost = total_cost;
         this.cooking_status = cooking_status;
     }

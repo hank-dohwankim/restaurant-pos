@@ -5,6 +5,7 @@ import com.system.restaurant.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 @Service
@@ -21,7 +22,7 @@ public class OrderService {
         return orderRepository.findById(id);
     }
 
-    public int post(Order orderdata) {
+    public int post(Order orderdata) throws SQLException {
         return orderRepository.post(orderdata);
     }
 
