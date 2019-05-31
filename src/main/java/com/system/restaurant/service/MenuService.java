@@ -21,12 +21,12 @@ public class MenuService {
         return menuRepository.findById(id);
     }
 
-    public int post(Menu menudata) {
-        return menuRepository.post(menudata);
+    public int post(Menu menuData) {
+        return menuRepository.post(menuData);
     }
 
-    public int put(Menu menudata) {
-        return menuRepository.put(menudata);
+    public int put(Menu menuData) {
+        return menuRepository.put(menuData);
     }
 
     public int delete(int menu_id) {

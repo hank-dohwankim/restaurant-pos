@@ -89,19 +89,19 @@ public class MenuController {
 
 
     // 메뉴 등록
-    // formdata submit => @ModelAttribute Menu menudata
-    // json => @RequestBody Menu menudata 테이터의 흐름
+    // formdata submit => @ModelAttribute Menu menuData
+    // json => @RequestBody Menu menuData 테이터의 흐름
     @RequestMapping(value = "/menus", method = RequestMethod.POST)
-    public ResponseEntity<Menu> menuPost(@ModelAttribute Menu menudata) {
-        int affected = menuService.post(menudata);
+    public ResponseEntity<Menu> menuPost(@ModelAttribute Menu menuData) {
+        int affected = menuService.post(menuData);
         return new ResponseEntity<>(new Menu(), HttpStatus.ACCEPTED);
     }
 
 
     // 수정
     @RequestMapping(value = "/menus/{menu_id}", method = RequestMethod.PUT)
-    public ResponseEntity<Menu> menuPut(@RequestBody Menu menudata) {
-        int affected = menuService.put(menudata);
+    public ResponseEntity<Menu> menuPut(@RequestBody Menu menuData) {
+        int affected = menuService.put(menuData);
         return new ResponseEntity<>(new Menu(), HttpStatus.ACCEPTED);
     }
 

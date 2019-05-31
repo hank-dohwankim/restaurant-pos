@@ -22,12 +22,12 @@ public class OrderService {
         return orderRepository.findById(id);
     }
 
-    public int post(Order orderdata) throws SQLException {
-        return orderRepository.post(orderdata);
+    public int post(Order orderData) throws SQLException {
+        return orderRepository.post(orderData);
     }
 
-    public int put(Order orderdata) {
-        return orderRepository.put(orderdata);
+    public int put(Order orderData) {
+        return orderRepository.put(orderData);
     }
 
     public int delete(int order_id) {

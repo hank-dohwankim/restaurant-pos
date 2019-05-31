@@ -9,9 +9,9 @@ public interface MenuRepository {
 
     Menu findById(int id);
 
-    int post(Menu menudata);
+    int post(Menu menuData);
 
-    int put(Menu menudata);
+    int put(Menu menuData);
 
     int delete(int menu_id);
 }
