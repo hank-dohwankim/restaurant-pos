@@ -27,14 +27,14 @@
             <tr>
                 <td>
                     <select name="menu_id">
-                        <option value="">메뉴</option>
+                        <option value="">Menu</option>
                     <c:forEach items = "${menuList}" var = "data">
                         <option value="${data.menu_id}">${data.menu_name}</option>
                     </c:forEach>
                     </select>
                 </td>
-                <td><input type="text" placeholder="menu_price" name="menu_price" value="" /></td>
-                <td><input type="text" placeholder="cooking_time" name="cooking_time" value="" /></td>
+                <td><input type="text" placeholder="menu_price" name="menu_price" value="" disabled/></td>
+                <td><input type="text" placeholder="cooking_time" name="cooking_time" value="" disabled/></td>
                 <td><input type="text" placeholder="order_message" name="message" value="" /></td>
                 <td>
                     <button class="btn-menu-save">Add Menu</button>
@@ -51,7 +51,6 @@
                    <th>Waiter</th>
                    <th>Order</th>
                    <th>Message</th>
-       <!--            <th>Receipt</th>-->
                </tr>
                </thead>
                <tbody>
@@ -63,18 +62,22 @@
                            <td>${data.message}</td>
                        </tr>
                    </c:forEach>
-                   <script>
-                       var cssGreen = {'background-color':'#6DFF6D'};
-                   </script>
                </tbody>
            </table>
         <hr/>
         <table>
             <tr>
-                <td><input type="text" placeholder="user_name" name="user_name" value=""></td>
-                <td><input type="text" placeholder="user_id" name="user_id" value=""></td>
+                <td>
+                    <select name="user_id">
+                        <option value="">User</option>
+                            <c:forEach items = "${userList}" var = "data">
+                                <option value="${data.user_id}">${data.user_name}</option>
+                            </c:forEach>
+                    </select>
+                </td>
+                <td><input type="text" placeholder="user_id" name="user_id" value="" disabled></td>
                 <td><input type="text" placeholder="total_cost" name="total_cost" value=""></td>
-                <td><input type="button" name="btn-order" value="주문 확인"></td>
+                <td><input type="button" name="btn-order" value="Place an order"></td>
             </tr>
         </table>
            
@@ -90,7 +93,6 @@ var orders = [];
              $('[name="menu_name"]').val();
              $('[name="order_message"]').val();
 
-$('[name="user_name"]').val('홍낄똥'); $('[name="menu_name"]').val('스테이크'); $('[name="order_message"]').val('ㄷㄷㄷ');
 
 
             // 메뉴선택시 가격, 조리시간 불러오기 
@@ -102,12 +104,23 @@ $('[name="user_name"]').val('홍낄똥'); $('[name="menu_name"]').val('스테이
                     success: function (response) {
                         $('[name="menu_price"]').val(response.menu_price);
                         $('[name="cooking_time"]').val(response.cooking_time);
-                        $('[name="message"]').val('');
+                        $('[name="message"]').val();
                         $('[name="message"]').focus();
                     }
                 });  // ajax 
              });  // 메뉴선택시 가격, 조리시간 불러오기 
 
+            // 유저 선택시 user_id 불러오기
+             $('[name="user_id"]').on('change', function() {
+
+                $.ajax({
+                    url: "./users/" + $('[name="user_id"]').val(),
+                    dataType: "json",
+                    success: function (response) {
+                        $('[name="user_id"]').val(response.user_id);
+                    }
+                });  // ajax
+             });  // 유저 선택시 user_id 불러오기
 
             $('.btn-menu-save').on('click', function() {
 
@@ -139,7 +152,7 @@ $('[name="user_name"]').val('홍낄똥'); $('[name="menu_name"]').val('스테이
 
                 $('[name="total_cost"]').val(total_cost);
                 $('[name="user_id"]').val(1);
-                $('[name="user_name"]').val('홍길동');
+                $('[name="user_name"]').val();
 
             });
 
@@ -147,7 +160,7 @@ $('[name="user_name"]').val('홍낄똥'); $('[name="menu_name"]').val('스테이
              $('[name="btn-order"]').on('click', function() {
 
                if(orders.length == 0) {
-                   alert('메뉴를 주문해주세요.');
+                   alert('Please order menu.');
                    return;
                }
                var dataObj = {
@@ -191,4 +204,4 @@ $('[name="user_name"]').val('홍낄똥'); $('[name="menu_name"]').val('스테이
             </script>
        </div>
        </body>
-       </html>>
+       </html>

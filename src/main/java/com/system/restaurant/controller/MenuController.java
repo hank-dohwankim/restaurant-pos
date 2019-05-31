@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class MenuController {
 
     @Resource
-            MenuService menuService;
+    MenuService menuService;
 
     /**
      * 메뉴 목록 jsp

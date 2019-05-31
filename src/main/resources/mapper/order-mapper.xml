@@ -26,8 +26,8 @@
     <insert id="post"
             useGeneratedKeys="true" keyProperty="order_id"
             parameterType="com.system.restaurant.domain.Order">
-        insert into tbl_order(user_id, total_cost, cooking_status,message)
-        values (#{user_id}, #{total_cost}, #{cooking_status},'')
+        insert into tbl_order(user_id, total_cost, cooking_status)
+        values (#{user_id}, #{total_cost}, #{cooking_status})
     </insert>
 
     <update id="put" parameterType="com.system.restaurant.domain.Order">

@@ -21,12 +21,12 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public int post(User userdata) {
-        return userRepository.post(userdata);
+    public int post(User userData) {
+        return userRepository.post(userData);
     }
 
-    public int put(User userdata) {
-        return userRepository.put(userdata);
+    public int put(User userData) {
+        return userRepository.put(userData);
     }
 
     public int delete(int user_id) {

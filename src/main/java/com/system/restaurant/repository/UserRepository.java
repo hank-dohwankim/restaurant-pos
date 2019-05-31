@@ -9,9 +9,9 @@ public interface UserRepository {
 
     User findById(int id);
 
-    int post(User userdata);
+    int post(User userData);
 
-    int put(User userdata);
+    int put(User userData);
 
     int delete(int user_id);
 }

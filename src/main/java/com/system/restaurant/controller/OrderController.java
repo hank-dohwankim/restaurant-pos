@@ -81,15 +81,15 @@ public class OrderController {
     @RequestMapping(value = "/orders", method = RequestMethod.POST)
     public ResponseEntity<Order> OrderPost(@RequestBody OrderRequestVO orderRequestVO) {
 
-//        int affected = orderService.post(orderData);
+//        int affected = orderService.post(orderdata);
         return new ResponseEntity<>(new Order(), HttpStatus.ACCEPTED);
     }
 
 
     // 수정
     @RequestMapping(value = "/orders/{order_id}", method = RequestMethod.PUT)
-    public ResponseEntity<Order> OrderPut(@RequestBody Order orderData) {
-        int affected = orderService.put(orderData);
+    public ResponseEntity<Order> OrderPut(@RequestBody Order orderdata) {
+        int affected = orderService.put(orderdata);
         return new ResponseEntity<>(new Order(), HttpStatus.ACCEPTED);
     }
 

@@ -12,9 +12,9 @@ public interface OrderRepository {
 
     Order findById(int id);
 
-    int post(Order orderData) throws SQLException;
+    int post(Order orderdata) throws SQLException;
 
-    int put(Order orderData);
+    int put(Order orderdata);
 
     int delete(int order_id);
 }

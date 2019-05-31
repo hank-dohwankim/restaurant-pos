@@ -2,8 +2,10 @@ package com.system.restaurant.controller;
 
 import com.system.restaurant.domain.Menu;
 import com.system.restaurant.domain.Terminal;
+import com.system.restaurant.domain.User;
 import com.system.restaurant.service.MenuService;
 import com.system.restaurant.service.TerminalService;
+import com.system.restaurant.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,9 @@ public class TerminalController {
 
     @Resource
     MenuService menuService;
+
+    @Resource
+    UserService userService;
     /**
      * 메뉴 목록 jsp
      * @param model
@@ -35,6 +40,8 @@ public class TerminalController {
         model.addAttribute("terminalList", terminalList);
         ArrayList<Menu> menuList = menuService.menuList();
         model.addAttribute("menuList", menuList);
+        ArrayList<User> userList = userService.userList();
+        model.addAttribute("userList", userList);
 
 
         return "terminalList";
@@ -56,7 +63,7 @@ public class TerminalController {
          */
     }
 
-//    /**
+    //    /**
 //     * Terminal 에서 order 1건 조회 시
 //     */
 //    @RequestMapping(value = "/terminals/{order_id")
@@ -84,8 +91,8 @@ public class TerminalController {
 //     * Terminal 에서의 order 수정
 //     */
 //    @RequestMapping(value = "/terminals/{order_id}", method = RequestMethod.PUT)
-//    public ResponseEntity<Terminal> terminalPut(@RequestBody Terminal orderData) {
-//        int affected = terminalService.put(orderData);
+//    public ResponseEntity<Terminal> terminalPut(@RequestBody Terminal orderdata) {
+//        int affected = terminalService.put(orderdata);
 //        return new ResponseEntity<>(new Terminal(), HttpStatus.ACCEPTED);
 //    }
 //

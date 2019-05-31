@@ -8,29 +8,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>user list</title>
+    <title>User List</title>
 </head>
 <body>
 
-<h2>사용자 등록</h2>
+<h2>Register User</h2>
 <table>
   <tr>
-    <td><input type="text" placeholder="user_id" name="user_id" value=""/></td>
-    <td><input type="text" placeholder="name" name="name" value=""/></td>
-    <td><input type="text" placeholder="login" name="login" value=""/></td>
-    <td><input type="text" placeholder="password" name="password" value=""/></td>
-    <td><input type="text" placeholder="email" name="email" value=""/></td>
+    <td><input type="text" placeholder="user_name" name="user_name" value=""/></td>
+    <td><input type="text" placeholder="user_ID" name="user_login" value=""/></td>
+    <td><input type="text" placeholder="user_password" name="user_password" value=""/></td>
+    <td><input type="text" placeholder="user_email" name="user_email" value=""/></td>
     <td><input type="text" placeholder="user_type" name="user_type" value=""/></td>
     <td>
-      <button class="btn-user-save">신규 저장</button>
+      <button class="btn-user-save">Add New</button>
     </td>
   </tr>
 </table>
 <hr/>
-<h2>user list</h2>
+<h2>User List</h2>
   <ul class="users-list">
    <c:forEach items="${userList}" var="demo">
-   <li data-id="${demo.user_id}">${demo.name} / ${demo.login} / ${demo.email} / ${demo.user_type} </li>
+   <li data-id="${demo.user_id}">${demo.user_name} / ${demo.user_login} / ${demo.user_email} / ${demo.user_type} </li>
    </c:forEach>
   </ul>
 
@@ -54,7 +53,7 @@ $(document).ready(function () {
       dataType: "json",
       success: function (response) {
         $.each(response, function (indexInArray, valueOfElement) { 
-          str += '<li data-id="'+ valueOfElement.user_id + '"> ' + valueOfElement.name + ' /' + valueOfElement.login + ' /' + valueOfElement.email +' / ' + valueOfElement.user_type +'/ </li>'; 
+          str += '<li data-id="'+ valueOfElement.user_id + '"> ' + valueOfElement.user_name + ' /' + valueOfElement.user_login + ' /' + valueOfElement.user_email +' / ' + valueOfElement.user_type +'/ </li>';
         });
         $('.users-list').html(str);
       }
