@@ -14,8 +14,8 @@ public class OrderService {
     @Resource
     OrderRepository orderRepository;
 
-    public ArrayList<Order> orderlist() {
-        return orderRepository.orderlist();
+    public ArrayList<Order> orderList() {
+        return orderRepository.orderList();
     }
 
     public Order findById(int id) {

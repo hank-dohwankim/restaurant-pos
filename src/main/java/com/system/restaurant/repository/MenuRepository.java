@@ -5,7 +5,7 @@ import com.system.restaurant.domain.Menu;
 import java.util.ArrayList;
 
 public interface MenuRepository {
-    ArrayList<Menu> menulist();
+    ArrayList<Menu> menuList();
 
     Menu findById(int id);
 

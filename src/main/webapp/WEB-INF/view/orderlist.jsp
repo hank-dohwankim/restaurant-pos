@@ -111,7 +111,7 @@
                </tr>
                </thead>
                <tbody>
-                   <c:forEach items = "${orderlist}" var = "data">
+                   <c:forEach items = "${orderList}" var = "data">
                        <tr id="mycell">
                            <td>${data.order_id}</td>
                            <td>${data.user_name}</td>

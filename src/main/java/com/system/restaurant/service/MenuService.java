@@ -13,8 +13,8 @@ public class MenuService {
     @Resource
     MenuRepository menuRepository;
 
-    public ArrayList<Menu> menulist() {
-        return menuRepository.menulist();
+    public ArrayList<Menu> menuList() {
+        return menuRepository.menuList();
     }
 
     public Menu findById(int id) {

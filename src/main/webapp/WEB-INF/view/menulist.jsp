@@ -29,7 +29,7 @@
    <hr/>
    <h2>list menu </h2>
     <ul class="menus-list">
-        <c:forEach items="${menulist}" var="demo">
+        <c:forEach items="${menuList}" var="demo">
                <li data-id="${demo.menu_id}">${demo.menu_id} / ${demo.menu_name} / ${demo.menu_price} / ${demo.cooking_time} </li>
         </c:forEach>
    </ul>
@@ -83,7 +83,7 @@ $(document).ready(function () {
       dataType: "json",  // return
       success: function (response) {
         alert('Registered');
-        getmenulist();
+        getmenuList();
       }
     });
   }); // 신규 저장 버튼 이벤트
@@ -126,7 +126,7 @@ $(document).ready(function () {
       success: function (response) {
         debugger
         alert('Modified');
-        getmenulist();
+        getmenuList();
       }
     });
   });
@@ -141,12 +141,12 @@ $(document).ready(function () {
       dataType: "json",
       success: function (response) {
         alert('Deleted');
-        getmenulist();
+        getmenuList();
       }
     });
   })
 
-  function getmenulist() {
+  function getmenuList() {
     var str = '';
     $.ajax({
       url: "./menus",
@@ -159,7 +159,7 @@ $(document).ready(function () {
       }
     });
 
-  } // getmenulist
+  } // getmenuList
 
 
 });  // doc REady

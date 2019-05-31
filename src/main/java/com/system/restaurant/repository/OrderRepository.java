@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 @Repository
 public interface OrderRepository {
-    ArrayList<Order> orderlist();
+    ArrayList<Order> orderList();
 
     Order findById(int id);
 
