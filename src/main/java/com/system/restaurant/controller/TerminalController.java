@@ -91,8 +91,8 @@ public class TerminalController {
 //     * Terminal 에서의 order 수정
 //     */
 //    @RequestMapping(value = "/terminals/{order_id}", method = RequestMethod.PUT)
-//    public ResponseEntity<Terminal> terminalPut(@RequestBody Terminal orderdata) {
-//        int affected = terminalService.put(orderdata);
+//    public ResponseEntity<Terminal> terminalPut(@RequestBody Terminal orderData) {
+//        int affected = terminalService.put(orderData);
 //        return new ResponseEntity<>(new Terminal(), HttpStatus.ACCEPTED);
 //    }
 //

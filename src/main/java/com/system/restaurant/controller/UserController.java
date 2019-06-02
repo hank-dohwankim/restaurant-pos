@@ -86,19 +86,19 @@ public class UserController {
 
 
     // 메뉴 등록
-    // formdata submit => @ModelAttribute User userdata
-    // json => @RequestBody User userdata 테이터의 흐름
+    // formdata submit => @ModelAttribute User userData
+    // json => @RequestBody User userData 테이터의 흐름
     @RequestMapping(value = "/users", method = RequestMethod.POST)
-    public ResponseEntity<User> userPost(@ModelAttribute User userdata) {
-        int affected = userService.post(userdata);
+    public ResponseEntity<User> userPost(@ModelAttribute User userData) {
+        int affected = userService.post(userData);
         return new ResponseEntity<>(new User(), HttpStatus.ACCEPTED);
     }
 
 
     // 수정
     @RequestMapping(value = "/users/{user_id}", method = RequestMethod.PUT)
-    public ResponseEntity<User> userPut(@RequestBody User userdata) {
-        int affected = userService.put(userdata);
+    public ResponseEntity<User> userPut(@RequestBody User userData) {
+        int affected = userService.put(userData);
         return new ResponseEntity<>(new User(), HttpStatus.ACCEPTED);
     }
 

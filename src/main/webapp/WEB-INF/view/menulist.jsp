@@ -153,7 +153,7 @@ $(document).ready(function () {
       dataType: "json",  // return type
       success: function (response) {
         $.each(response, function (indexInArray, valueOfElement) {
-            str += '<li data-id="'+ valueOfElement.menu_id + '"> ' + valueOfElement.menu_id + ' /' + valueOfElement.menu_name + ' /' + valueOfElement.menu_price + ' /' + valueOfElement.cooking_time + '</li>';
+            str += '<li data-id="'+ valueOfElement.menu_id + '"> ' + valueOfElement.menu_id + ' / ' + valueOfElement.menu_name + ' / ' + valueOfElement.menu_price + ' / ' + valueOfElement.cooking_time + '</li>';
         });
         $('.menus-list').html(str);
       }

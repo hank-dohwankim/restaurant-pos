@@ -19,8 +19,8 @@
     </select>
 
     <select id="findById" parameterType="int" resultType="com.system.restaurant.domain.Order">
-        select order_id, user_id, message, total_cost, cooking_status from tbl_order
-        where order_id = #{id}
+        select order_detail_id, cooking_status from tbl_order_detail
+        where order_detail_id = #{id}
     </select>
 
     <insert id="post"
@@ -30,12 +30,10 @@
         values (#{user_id}, #{total_cost}, #{cooking_status})
     </insert>
 
-    <update id="put" parameterType="com.system.restaurant.domain.Order">
-        update tbl_order set
-        order_name = #{order_name},
-        order_price = #{order_price},
-        cooking_time = #{cooking_time}
-        where order_id =#{order_id}
+    <update id="put" parameterType="com.system.restaurant.domain.OrderDetail">
+        update tbl_order_detail set
+        cooking_status = #{cooking_status}
+        where order_detail_id =#{id}
     </update>
 
     <delete id="delete" parameterType="int">
