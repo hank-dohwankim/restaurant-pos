@@ -158,10 +158,7 @@ $(document).ready(function () {
         $('.menus-list').html(str);
       }
     });
-
   } // getmenuList
-
-
 });  // doc REady
 
 </script>

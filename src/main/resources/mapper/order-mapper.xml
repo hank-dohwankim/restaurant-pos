@@ -19,8 +19,8 @@
     </select>
 
     <select id="findById" parameterType="int" resultType="com.system.restaurant.domain.Order">
-        select order_detail_id, cooking_status from tbl_order_detail
-        where order_detail_id = #{id}
+        select order_id, cooking_status from tbl_order
+        where order_id = #{id}
     </select>
 
     <insert id="post"

@@ -198,8 +198,6 @@ var orders = [];
 
 
              }); // 신규 저장 버튼 이벤트
-
-
            }); // doc ready
             </script>
        </div>
