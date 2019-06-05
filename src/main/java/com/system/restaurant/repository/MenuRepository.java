@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public interface MenuRepository {
     ArrayList<Menu> menuList();
+    // Service 에서 사용하기 위한 Domain 의 List 를 생성했다.
 
     Menu findById(int id);
 

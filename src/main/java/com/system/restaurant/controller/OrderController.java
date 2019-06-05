@@ -26,7 +26,7 @@ public class OrderController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/order.do", method = RequestMethod.GET)
+        @RequestMapping(value = "/order.do", method = RequestMethod.GET)
     // '/Order' 라는 요청이 들어왔을 때 'OrderList' method 를 실행한다
     public String orderList(ModelMap model) {
         //JSP에서 객체를 쓰기 위해 model로 orderList를 넘겨준다

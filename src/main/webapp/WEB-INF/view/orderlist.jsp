@@ -89,13 +89,6 @@
            </div>
 
            <h2>Kitchen Page</h2>
-            <%-- <ul class="order-list">
-                    <c:forEach items="${orderList}" var="demo">
-                        <li data-id="${demo.order_id}"> ${demo.order_detail_id} / ${demo.cooking_status} </li>
-                    </c:forEach>
-            </ul> --%>
-
-
 
            <table class="table" id="mytable">
                <thead>
@@ -109,7 +102,7 @@
                </tr>
                </thead>
                <tbody>
-                   <c:forEach items = "${orderList}" var = "data"> --%>
+                   <c:forEach items = "${orderList}" var = "data">
                        <tr id="mycell">
                            <td><b>${data.order_id}</b> - ${data.order_detail_id}</td>
                            <td>${data.user_name}</td>
@@ -117,7 +110,7 @@
                            <td>${data.message}</td>
                            <td id="cooking_status">${data.cooking_status}</td>
                            <td>
-                                <button class="">Fire</button>
+                                <button id="btn-order-fire" class="">Fire</button>
                                 <button class="">Serve</button>
                            </td>
                        </tr>

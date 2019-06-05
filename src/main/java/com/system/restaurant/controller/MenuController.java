@@ -18,7 +18,8 @@ import java.util.ArrayList;
 @Controller
 public class MenuController {
 
-    @Resource
+    @Resource // 객체 생성 없이 getMenuService()를 호출할 수 있다.
+    //@Autowired
     MenuService menuService;
 
     /**
