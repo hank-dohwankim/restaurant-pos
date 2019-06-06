@@ -31,6 +31,7 @@
             <servlet-name>appServlet</servlet-name> 기본설정 -->
     <servlet-name>dispatcherServlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!--servlet-class 에 mapping 할 class 명 입력-->
 
     <init-param> <!--Servlet 의 초기 파라미터 설정-->
       <param-name>contextConfigLocation</param-name>

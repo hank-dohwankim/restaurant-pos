@@ -21,64 +21,8 @@
            </style>
        </head>
        <body>
-       <div class="modify">
-         <h2>Modification</h2>
-         <table>
-             <tr>
-                 <td>
-                   <input type="text" placeholder="order_id" name="order_id" value="" /></td>
-             </tr>
-             <tr>
-                 <td><input type="text" placeholder="cooking_status" name="cooking_status" value="" /></td>
-             </tr>
-             <tr>
-                 <td>
-                       <button class="btn-menu-save2">Change and save</button>
-                       <button class="btn-menu-delete">Delete</button>
-                 </td>
-             </tr>
-         </table>
-         </div>
             <script>
-                //         // 1건 조회
-                //   $(document).on('click','#cooking_status', function() {
-                //     console.log($(this).val());
 
-                //     $.ajax({
-                //       url: "./orders/" + $(this).data('id') ,
-                //       data: "data",  // url?id=1
-                //       dataType: "json",  // return type
-                //       success: function (response) {
-                //         $('.modify [name="order_id"]').val(response.order_id);
-                //         $('.modify [name="cooking_status"]').val(response.cooking_status);
-                //       }
-                //     });
-                //   });
-           
-
-                            // 수정
-                // $('.btn-menu-save2').on('click', function() {
-
-                //     var obj = {
-                //         "menu_id": $('.modify [name="menu_id"]').val(),
-                //         "menu_name": $('.modify [name="menu_name"]').val(),
-                //         "menu_price": $('.modify [name="menu_price"]').val(),
-                //         "cooking_time": $('.modify [name="cooking_time"]').val()
-                //     };
-
-                //     $.ajax({
-                //     type: "PUT",
-                //     url: "./menus/" + $('.modify [name="menu_id"]').val(),
-                //     data: JSON.stringify(obj),
-                //     contentType: 'application/json',
-                //     dataType: "json", // return type
-                //     success: function (response) {
-                //         debugger
-                //         alert('Modified');
-                //         getmenuList();
-                //     }
-                //     });
-                // });
             </script>
 
        <div class="container">
@@ -110,13 +54,13 @@
                            <td>${data.message}</td>
                            <td id="cooking_status">${data.cooking_status}</td>
                            <td>
-                                <button id="btn-order-fire" class="">Fire</button>
-                                <button class="">Serve</button>
+                                <button id="btn-order-fire" class="btn btn-danger">Fire</button>
+                                <button class="btn btn-success">Serve</button>
                            </td>
                        </tr>
                    </c:forEach>
                </tbody>
            </table>
        </div>
-       </body>
-       </html>
+   </body>
+</html>

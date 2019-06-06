@@ -3,8 +3,6 @@ package com.system.restaurant.domain;
 
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 public class Order {
 
@@ -15,14 +13,12 @@ public class Order {
     private String user_id;
     private float menu_price;
     private float total_cost;
+    private String cooking_status;
     private String message;
-    private List<OrderDetail> orderDetails;
-    private List<Menu> menu;
 
     public Order() {}
 
-    public Order(int order_id, int order_detail_id, String menu_name, String user_name, String user_id,
-                 float menu_price, float total_cost, String cooking_status, String message, List<OrderDetail> orderDetails) {
+    public Order(int order_id, int order_detail_id, String menu_name, String user_name, String user_id, float menu_price, float total_cost, String cooking_status, String message) {
         this.order_id = order_id;
         this.order_detail_id = order_detail_id;
         this.menu_name = menu_name;
@@ -30,6 +26,7 @@ public class Order {
         this.user_id = user_id;
         this.menu_price = menu_price;
         this.total_cost = total_cost;
+        this.cooking_status = cooking_status;
         this.message = message;
     }
 
@@ -87,6 +84,14 @@ public class Order {
 
     public void setTotal_cost(float total_cost) {
         this.total_cost = total_cost;
+    }
+
+    public String getCooking_status() {
+        return cooking_status;
+    }
+
+    public void setCooking_status(String cooking_status) {
+        this.cooking_status = cooking_status;
     }
 }
 

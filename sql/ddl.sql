@@ -20,7 +20,7 @@ CREATE TABLE `tbl_order_detail` (
   `menu_price` float NOT NULL,
   `menu_name` varchar(45) NOT NULL,
   `message` varchar(255) NOT NULL,
-  `cooking_status` enum('Not started','Started','Canceled') NOT NULL,
+  `cooking_status` enum('Not started','Started','Served') NOT NULL,
   PRIMARY KEY (`order_detail_id`),
   KEY `order_id_idx` (`order_id`),
   KEY `menu_id_idx` (`menu_id`),

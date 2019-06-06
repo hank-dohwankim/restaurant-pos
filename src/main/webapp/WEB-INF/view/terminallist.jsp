@@ -12,12 +12,9 @@
            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
                <style>
-                   .waiter { width: 100px;}
-                   .menu_name { width: 100px;}
-                   .message { width: 150px;}
-                   .cooking_status { width: 90px;}
-                   #order_table {display: none;}
-                   .button_order {display: none;}
+                    #order_detail_no {width: 200px;}
+                    #menu_name {width: 200px;}
+                    #order_detail_no {width: 200px;}
                </style>
        </head>
        <body>
@@ -31,7 +28,7 @@
 
            <h2>Terminal Page</h2>
 
-           <table class="new">
+           <table class="new" style="text-align: center; border: 1px solid #dddddd">
             <tr>
                 <td>
                     <select name="menu_id">
@@ -45,36 +42,36 @@
                 <td><input type="text" placeholder="cooking_time" name="cooking_time" value="" disabled/></td>
                 <td><input type="text" placeholder="order_message" name="message" value="" /></td>
                 <td>
-                    <button class="btn-menu-save">Add Menu</button>
+                    <button id="btn-menu-save" type="button" class="btn btn-success">Add Menu</button>
                 </td>
             </tr>
            </table>
 
         <hr/>
 
-           <table class="table">
+           <table class="table" style="text-align: center; border: 1px solid #dddddd">
                <thead>
                <tr>
-                   <th>Order Detail No.</th>
-                   <th>Menu Name</th>
-                   <th>Menu Price</th>
-                   <th>Message</th>
+                   <th id="order_detail_no">Order No.</th>
+                   <th id="menu_name">Menu Name</th>
+                   <th id="menu_price">Menu Price</th>
+                   <th id="message">Message</th>
                </tr>
                </thead>
                <tbody>
-                   <c:forEach items = "${terminalList}" var = "data">
+                   <%-- <c:forEach items = "${terminalList}" var = "data">
                        <tr id="mycell">
                            <td><b>${data.order_id}</b> - ${data.order_detail_id}</td>
                            <td>${data.user_name}</td>
                            <td>${data.menu_name}</td>
                            <td>${data.message}</td>
                        </tr>
-                   </c:forEach>
+                   </c:forEach> --%>
                </tbody>
            </table>
         <hr/>
         <div>
-            <table>
+            <table style="text-align: center; border: 1px solid #dddddd">
                 <tr>
                     <td>
                         <select name="user_id">
@@ -86,7 +83,7 @@
                     </td>
                     <td><input type="text" placeholder="user_id" name="user_id" value="" disabled></td>
                     <td><input type="text" placeholder="total_cost" name="total_cost" value=""></td>
-                    <td><input type="button" name="btn-order" value="Place an order"></td>
+                    <td><input type="button" name="btn-order" value="Place an order" class="btn btn-primary"></td>
                 </tr>
             </table>
         </div>
@@ -132,7 +129,7 @@ var orders = [];
                 });  // ajax
              });  // 유저 선택시 user_id 불러오기
 
-            $('.btn-menu-save').on('click', function() {
+            $('#btn-menu-save').on('click', function() {
 
                 orders.push({
                 "order_detail_id": 0,
