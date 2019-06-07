@@ -15,6 +15,8 @@
                     #order_detail_no {width: 200px;}
                     #menu_name {width: 200px;}
                     #order_detail_no {width: 200px;}
+                    table {text-align: center; border: 1px solid #dddddd}
+                    thead {background-color: #fafafa; text-align: center;}
                </style>
        </head>
        <body>
@@ -34,10 +36,15 @@
                                 <a class="nav-link" href="/ledge.do">Check Out<span class="sr-only">(current)</span></a>
                             </li>
                         </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a class="nav-link" href="/user.do">User</a></li>
+                            <li><a class="nav-link" href="/menu.do">Menu</a></li>
+                        </ul>
             </nav>
         <br>
 
-           <h2>Terminal Page</h2>
+           <h1>Terminal Page</h1>
+           <hr/>
 
            <table class="new" style="text-align: center; border: 1px solid #dddddd">
             <tr>

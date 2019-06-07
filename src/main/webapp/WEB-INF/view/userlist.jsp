@@ -8,18 +8,31 @@
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
- 
- <style>
- /* .modify {
-   position: absolute;
-   top: 160px;
-   left:500px;
- } */
- </style>
+
  </head>
  <body>
+    <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/terminal.do">Restaurant Web POS System</a>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/terminal.do">Terminal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/order.do">Kitchen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ledge.do">Check Out</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="nav-link active" href="/user.do">User</a></li>
+                        <li><a class="nav-link" href="/menu.do">Menu</a></li>
+                    </ul>
+            </nav>
+        <br>
   <h1>User Management</h1>
-    <br>
+    <hr/>
     <container>
       <div style="display:inline">
     <table class="new" style="text-align: center; border: 1px solid #dddddd">
@@ -42,7 +55,7 @@
             </td>
         </tr>
     </table>
-    <br>
+    <hr/>
     <table class="table" style="text-align: center; border: 1px solid #dddddd">
         <thead>
           <tr>
@@ -73,17 +86,18 @@
                <li data-id="${demo.user_id}">${demo.user_id} / ${demo.user_login} / ${demo.user_password} / ${demo.user_email} / ${demo.user_type} </li>
         </c:forEach>
    </ul> --%>
+   <hr/>
     <div class="modify">
       <table>
         <tr>
                <td>Modification :  </td>
                 <td>
-                  <input type="hidden" name="user_id" value=""/>
-                <td><input type="text" placeholder="user_name" name="user_name" value="" /></td>
-                <td><input type="text" placeholder="user_ID" name="user_login" value="" /></td>
+                  <input style="width:150px" type="hidden" name="user_id" value=""/>
+                <td><input style="width:150px" type="text" placeholder="user_name" name="user_name" value="" /></td>
+                <td><input style="width:150px" type="text" placeholder="user_ID" name="user_login" value="" /></td>
                 <td><input type="text" placeholder="user_password" name="user_password" value="" /></td>
                 <td><input type="text" placeholder="user_email" name="user_email" value="" /></td>
-                <td><input type="text" placeholder="user_type" name="user_type" value="" /></td>
+                <td><input style="width:100px" type="text" placeholder="user_type" name="user_type" value="" /></td>
                 <td>
                       <button class="btn btn-info" id="btn-user-save2">Change and save</button>
                       <button class="btn btn-danger" id="btn-user-delete">Delete</button>
@@ -214,17 +228,18 @@ $(document).ready(function () {
       url: "./users",
       dataType: "json",  // return type
       success: function (response) {
-        $.each(response, function (indexInArray, valueOfElement) {
-            str += '<tr>';
-            str += '    <td>'; + valueOfElement.user_id + '</td>';
-            str += '    <td>'; + valueOfElement.user_name + '</td>';
-            str += '    <td>'; + valueOfElement.user_login + '</td>';
-            str += '    <td>'; + valueOfElement.user_password + '</td>';
-            str += '    <td>'; + valueOfElement.user_email + '</td>';
-            str += '    <td>'; + valueOfElement.user_type + '</td>';
-            str += '<tr>';
-        });
-        $('.table').html(str);
+        // $.each(response, function (indexInArray, valueOfElement) {
+        //     str += '<tr>';
+        //     str += '    <td>'; + valueOfElement.user_id + '</td>';
+        //     str += '    <td>'; + valueOfElement.user_name + '</td>';
+        //     str += '    <td>'; + valueOfElement.user_login + '</td>';
+        //     str += '    <td>'; + valueOfElement.user_password + '</td>';
+        //     str += '    <td>'; + valueOfElement.user_email + '</td>';
+        //     str += '    <td>'; + valueOfElement.user_type + '</td>';
+        //     str += '<tr>';
+        // });
+        // $('.table').html(str);
+        location.href = "/user.do";
       }
     });
   } // getuserList

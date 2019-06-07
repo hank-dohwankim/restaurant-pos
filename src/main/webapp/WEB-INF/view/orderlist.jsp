@@ -18,6 +18,8 @@
                .cooking_status { width: 90px;}
                #order_table {display: none;}
                .button_order {display: none;}
+                table {text-align: center; border: 1px solid #dddddd}
+                thead {background-color: #fafafa; text-align: center;}
            </style>
        </head>
        <body>
@@ -25,32 +27,31 @@
 
             </script>
         
-       <div class="container">
+      <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="/terminal.do">Restaurant Web POS System</a>
-                    <%-- <div>
-                        <span> <a href="terminal.do">1. Terminal</a></span>
-                        <span> <a href="order.do">2. Kitchen</a></span>
-                        <span> <a href="ledge.do">3. Check Out</a></span>
-                    </div> --%>
-                </button>
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="/terminal.do">Terminal</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="/order.do">Kitchen<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/order.do">Kitchen</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/ledge.do">Check Out</a>
                         </li>
                     </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="nav-link" href="/user.do">User</a></li>
+                        <li><a class="nav-link" href="/menu.do">Menu</a></li>
+                    </ul>
             </nav>
         <br>
 
-           <h2>Kitchen Page</h2>
+           <h1>Kitchen Page</h1>
+           <hr/>
 
-           <table class="table" id="mytable">
+           <table class="table" style="text-align: center; border: 1px solid #dddddd" id="mytable">
                <thead>
                <tr>
                    <th>Order No.</th>
