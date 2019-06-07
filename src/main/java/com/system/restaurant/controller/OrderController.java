@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller//아래의 Class 를 controller 로 모듈화 시키는 Tag
 public class OrderController {
@@ -38,7 +40,13 @@ public class OrderController {
             응답처리된다.
          */
         ArrayList<Order> orderList = orderService.orderList();
-        model.addAttribute("orderList", orderList);
+        ArrayList<Order> tmpList = new ArrayList<>();
+        for (Order o : orderList) {
+        	if (!o.getCooking_status().equals("Served")) {
+        		tmpList.add(o);
+        	}
+        }
+        model.addAttribute("orderList", tmpList);
 
         /*addAttribute 속성을 추가해주는 method.
           OrderService class 의 OrderList 객체의 속성을 주입한다.
@@ -115,9 +123,13 @@ public class OrderController {
 
 
     // 수정
-    @RequestMapping(value = "/orders/{order_id}", method = RequestMethod.PUT)
-    public ResponseEntity<Order> OrderPut(@RequestBody Order orderData) {
-        int affected = orderService.put(orderData);
+    @RequestMapping(value = "/orders/{order_id}", method = RequestMethod.GET)
+    public ResponseEntity<Order> OrderPut(@PathVariable("order_id")int order_id,
+    		@RequestParam(value="cooking_status")String cooking_status) {
+    	Map<String, Object> m = new HashMap<>();
+    	m.put("order_detail_id", order_id);
+    	m.put("cooking_status", cooking_status);
+        int affected = orderService.put(m);
         return new ResponseEntity<>(new Order(), HttpStatus.ACCEPTED);
     }
 

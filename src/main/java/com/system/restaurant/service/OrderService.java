@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Map;
 
 @Service
 public class OrderService {
@@ -26,8 +27,8 @@ public class OrderService {
         return orderRepository.post(orderData);
     }
 
-    public int put(Order orderData) {
-        return orderRepository.put(orderData);
+    public int put(Map<String, Object> m) {
+        return orderRepository.put(m);
     }
 
     public int delete(int order_id) {

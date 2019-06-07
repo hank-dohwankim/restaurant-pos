@@ -30,7 +30,7 @@
             <td><input type="text" placeholder="user_password" name="user_password" value="" /></td>
             <td><input type="text" placeholder="user_email" name="user_email" value="" /></td>
             <td>
-                 <select name="menu_id">
+                 <select name="user_id">
                       <option value="">User Type</option>
                           <c:forEach items = "${userList}" var = "data">
                               <option value="${data.user_type}">${data.user_type}</option>
@@ -47,16 +47,18 @@
         <thead>
           <tr>
             <th style="background-color: #fafafa; text-align: center;">User No.</th>
+            <th style="background-color: #fafafa; text-align: center;">User Name</th>
             <th style="background-color: #fafafa; text-align: center;">User ID</th>
             <th style="background-color: #fafafa; text-align: center;">User Password</th>
             <th style="background-color: #fafafa; text-align: center;">User E-mail</th>
             <th style="background-color: #fafafa; text-align: center;">User Type</th>
           </tr>
         </thead>
-        <tbody id="ajaxTable">
+        <tbody id="users-table">
         <c:forEach items="${userList}" var="demo">
-          <tr>  
+          <tr class = "userTr">  
             <td data-id="${demo.user_id}">${demo.user_id}</td>
+            <td data-id="${demo.user_id}">${demo.user_name}</td>
             <td data-id="${demo.user_id}">${demo.user_login}</td>
             <td data-id="${demo.user_id}">${demo.user_password}</td>
             <td data-id="${demo.user_id}">${demo.user_email}</td>
@@ -65,13 +67,19 @@
         </tr>
       </tbody>  
     </table>
+   <%-- <h2>List user </h2>
+    <ul class="users-list">
+        <c:forEach items="${userList}" var="demo">
+               <li data-id="${demo.user_id}">${demo.user_id} / ${demo.user_login} / ${demo.user_password} / ${demo.user_email} / ${demo.user_type} </li>
+        </c:forEach>
+   </ul> --%>
     <div class="modify">
       <table>
         <tr>
                <td>Modification :  </td>
                 <td>
                   <input type="hidden" name="user_id" value=""/>
-                  <input type="text" placeholder="user_name" name="user_name" value="" /></td>
+                <td><input type="text" placeholder="user_name" name="user_name" value="" /></td>
                 <td><input type="text" placeholder="user_ID" name="user_login" value="" /></td>
                 <td><input type="text" placeholder="user_password" name="user_password" value="" /></td>
                 <td><input type="text" placeholder="user_email" name="user_email" value="" /></td>
@@ -85,15 +93,26 @@
         </div>
 
    <hr/>
-   <h2>List user </h2>
-    <ul class="users-list">
-        <c:forEach items="${userList}" var="demo">
-               <li data-id="${demo.user_id}">${demo.user_id} / ${demo.user_login} / ${demo.user_password} / ${demo.user_email} / ${demo.user_type} </li>
-        </c:forEach>
-   </ul>
 
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script>
+$(function(){
+	$(".userTr").click(function(){
+		var id = $(this).find("td")[0];
+    var name = $(this).find("td")[1];
+		var login = $(this).find("td")[2];
+		var password = $(this).find("td")[3];
+		var email = $(this).find("td")[4];
+		var type = $(this).find("td")[5];
+        $('.modify [name="user_id"]').val($(id).text());
+        // $('.modify [name="user_name"]').val($(login).attr("data"));
+        $('.modify [name="user_name"]').val($(name).text());
+        $('.modify [name="user_login"]').val($(login).text());
+        $('.modify [name="user_password"]').val($(password).text());
+        $('.modify [name="user_email"]').val($(email).text());
+        $('.modify [name="user_type"]').val($(type).text());
+	})
+})
 
 $(document).ready(function () {
 
@@ -196,12 +215,18 @@ $(document).ready(function () {
       dataType: "json",  // return type
       success: function (response) {
         $.each(response, function (indexInArray, valueOfElement) {
-            str += '<li data-id="'+ valueOfElement.user_id + '"> ' + valueOfElement.user_id + ' /' + valueOfElement.user_name + ' /' + valueOfElement.user_login + ' /' + valueOfElement.user_password + ' /' + valueOfElement.user_email + ' /' + valueOfElement.user_type +'</li>';
+            str += '<tr>';
+            str += '    <td>'; + valueOfElement.user_id + '</td>';
+            str += '    <td>'; + valueOfElement.user_name + '</td>';
+            str += '    <td>'; + valueOfElement.user_login + '</td>';
+            str += '    <td>'; + valueOfElement.user_password + '</td>';
+            str += '    <td>'; + valueOfElement.user_email + '</td>';
+            str += '    <td>'; + valueOfElement.user_type + '</td>';
+            str += '<tr>';
         });
-        $('.users-list').html(str);
+        $('.table').html(str);
       }
     });
-
   } // getuserList
 
 

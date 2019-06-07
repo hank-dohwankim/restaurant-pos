@@ -14,9 +14,9 @@ public class MenuService {
     MenuRepository menuRepository;
 
     public ArrayList<Menu> menuList() {
-        // 구현하고자 하는 로직은, Service 에서 해당 서비스에 맞는 Data 를 불러오기 위해 DOA 를 호출하는 것이다.
-        // 따라서 return 값으로 DAO 에서 불러온 List 값을 반환한다.
+        // Service 에서 해당 서비스에 맞는 Data 를 불러오기 위해 DAO 생성
         return menuRepository.menuList();
+        // Repository 에 DAO 에서 불러온 List 값을 return.
     }
 
     public Menu findById(int id) {

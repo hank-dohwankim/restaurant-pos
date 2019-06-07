@@ -29,7 +29,9 @@ public class Order {
         this.cooking_status = cooking_status;
         this.message = message;
     }
-
+    public Order(int order_detail_id, String cooking_status) {
+        this.order_detail_id = order_detail_id;
+    }
     public int getOrder_id() {
         return order_id;
     }

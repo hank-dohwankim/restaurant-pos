@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Map;
 
 @Repository
 public interface OrderRepository {
@@ -14,7 +15,7 @@ public interface OrderRepository {
 
     int post(Order orderData) throws SQLException;
 
-    int put(Order orderData);
+    int put(Map<String, Object> m);
 
     int delete(int order_id);
 }
