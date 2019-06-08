@@ -43,11 +43,11 @@
             <td><input type="text" placeholder="user_password" name="user_password" value="" /></td>
             <td><input type="text" placeholder="user_email" name="user_email" value="" /></td>
             <td>
-                 <select name="user_id">
+                 <select name="user_type">
                       <option value="">User Type</option>
-                          <c:forEach items = "${userList}" var = "data">
-                              <option value="${data.user_type}">${data.user_type}</option>
-                          </c:forEach>
+                      <option value="admin">Admin</option>
+                      <option value="waiter">Waiter</option>
+                      <option value="chef">Chef</option>                                                                  
                   </select>
             </td>
             <td>
@@ -97,7 +97,14 @@
                 <td><input style="width:150px" type="text" placeholder="user_ID" name="user_login" value="" /></td>
                 <td><input type="text" placeholder="user_password" name="user_password" value="" /></td>
                 <td><input type="text" placeholder="user_email" name="user_email" value="" /></td>
-                <td><input style="width:100px" type="text" placeholder="user_type" name="user_type" value="" /></td>
+                <td>
+                 <select name="user_type">
+                      <option value="">User Type</option>
+                      <option value="admin">Admin</option>
+                      <option value="waiter">Waiter</option>
+                      <option value="chef">Chef</option>                                                                  
+                  </select>
+                 </td>
                 <td>
                       <button class="btn btn-info" id="btn-user-save2">Change and save</button>
                       <button class="btn btn-danger" id="btn-user-delete">Delete</button>

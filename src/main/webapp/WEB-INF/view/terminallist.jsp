@@ -24,7 +24,6 @@
      <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="/terminal.do">Restaurant Web POS System</a>
-                    </button>
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
                                 <a class="nav-link" href="/terminal.do">Terminal</a>
@@ -55,8 +54,8 @@
                                <option value="${data.user_id}">${data.user_name}</option>
                            </c:forEach>
                    </select>
-               </td>
-               <td ><input type="text" placeholder="user_id" name="user_id" value="" style="width:70px" disabled></td>
+                </td>
+                <td ><input type="text" placeholder="user_id" name="user_id" value="" style="width:70px" disabled></td>
                 <td>
                     <select name="menu_id">
                         <option value="">Menu</option>
@@ -66,7 +65,7 @@
                     </select>
                 </td>
                 <td><input type="text" placeholder="menu_price" name="menu_price" value="" style="width:100px" disabled/></td>
-                <td><input type="text" placeholder="total_cost" name="total_cost" value=""></td>
+                <td><input type="text" placeholder="total_cost" name="total_cost" value="" disabled></td>
                 <%-- <td><input type="text" placeholder="cooking_time" name="cooking_time" value="" disabled/></td> --%>
                 <td><input type="text" placeholder="order_message" name="message" value="" /></td>
                 <td>
@@ -76,26 +75,7 @@
                 <td><a href="/terminal.do"><input type="button" class="btn btn-danger" value="Cancel" /></a></td>
             </tr>
            </table>
-           <br>
-                 <%-- <div>
-                       <table style="text-align: center; border: 1px solid #dddddd">
-                           <tr>
-                               <td>
-                                   <select name="user_id">
-                                       <option value="">User</option>
-                                           <c:forEach items = "${userList}" var = "data">
-                                               <option value="${data.user_id}">${data.user_name}</option>
-                                           </c:forEach>
-                                   </select>
-                               </td>
-                               <td><input type="text" placeholder="user_id" name="user_id" value="" disabled></td>
-                               <td><input type="text" placeholder="total_cost" name="total_cost" value=""></td>
-                               <td><input type="button" name="btn-order" value="Place an order" class="btn btn-primary"></td>
-                           </tr>
-                       </table>
-                   </div>
-            <br> --%>
-        <hr/>
+           <hr/>
 
            <table id="Context" class="table" style="text-align: center; border: 1px solid #dddddd">
                <thead>
@@ -108,17 +88,9 @@
                </tr>
                </thead>
                <tbody>
-                   <%-- <c:forEach items = "${terminalList}" var = "data">
-                       <tr id="mycell">
-                           <td><b>${data.order_id}</b> - ${data.order_detail_id}</td>
-                           <td>${data.user_name}</td>
-                           <td>${data.menu_name}</td>
-                           <td>${data.message}</td>
-                       </tr>
-                   </c:forEach> --%>
+                  
                </tbody>
            </table>
-        <hr/>
 
            <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
            <script>
@@ -188,7 +160,7 @@
                 $('.table > tbody').html(str);
 
                 $('[name="total_cost"]').val(total_cost);
-                $('[name="user_id"]').val(1);
+                $('[name="user_id"]').val(response.user_id);
                 $('[name="user_name"]').val();
 
             });

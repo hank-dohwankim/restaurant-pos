@@ -16,10 +16,8 @@
                .menu_name { width: 100px;}
                .message { width: 150px;}
                .cooking_status { width: 90px;}
-               #order_table {display: none;}
-               .button_order {display: none;}
-                table {text-align: center; border: 1px solid #dddddd}
-                thead {background-color: #fafafa; text-align: center;}
+               table {text-align: center; border: 1px solid #dddddd}
+               thead {background-color: #fafafa; text-align: center;}
            </style>
        </head>
        <body>
@@ -72,7 +70,7 @@
                            <td>${data.message}</td>
                            <td id="cooking_status" class="cooking_status">${data.cooking_status}</td>
                            <td>
-                                <button id="btn-order-fire" class="btn btn-danger btn-order-fire">Fire</button>
+                                <button class="btn btn-danger btn-order-fire">Fire</button>
                                 <button class="btn btn-success btn-order-serve">Serve</button>
                            </td>
                        </tr>
