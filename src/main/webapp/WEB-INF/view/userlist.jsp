@@ -76,9 +76,9 @@
             <td data-id="${demo.user_id}">${demo.user_password}</td>
             <td data-id="${demo.user_id}">${demo.user_email}</td>
             <td data-id="${demo.user_id}">${demo.user_type}</td>
+           </tr>
           </c:forEach>
-        </tr>
-      </tbody>  
+      </tbody>
     </table>
    <%-- <h2>List user </h2>
     <ul class="users-list">
