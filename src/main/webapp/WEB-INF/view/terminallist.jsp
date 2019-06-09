@@ -23,7 +23,7 @@
 
      <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="/terminal.do">Restaurant Web POS System</a>
+                <a class="navbar-brand" href="/terminal.do">Restaurant Web Order System</a>
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
                                 <a class="nav-link" href="/terminal.do">Terminal</a>
@@ -32,7 +32,7 @@
                                 <a class="nav-link" href="/order.do">Kitchen</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/ledge.do">Check Out<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/ledge.do">Ledge<span class="sr-only">(current)</span></a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
@@ -69,7 +69,7 @@
                 <%-- <td><input type="text" placeholder="cooking_time" name="cooking_time" value="" disabled/></td> --%>
                 <td><input type="text" placeholder="order_message" name="message" value="" /></td>
                 <td>
-                    <button id="btn-menu-save" type="button" class="btn btn-info">Add Menu</button>
+                    <button id="btn-menu-save" type="button" class="btn btn-info">Add order</button>
                 </td>
                 <td><input type="button" name="btn-order" value="Place an order" class="btn btn-primary"></td>
                 <td><a href="/terminal.do"><input type="button" class="btn btn-danger" value="Cancel" /></a></td>
@@ -197,8 +197,6 @@
                  }
 
                });
-
-
              }); // 신규 저장 버튼 이벤트
            }); // doc ready
             </script>

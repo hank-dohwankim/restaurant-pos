@@ -13,7 +13,7 @@
  <body>
     <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="/terminal.do">Restaurant Web POS System</a>
+                <a class="navbar-brand" href="/terminal.do">Restaurant Web Order System</a>
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="/terminal.do">Terminal</a>
@@ -22,7 +22,7 @@
                             <a class="nav-link" href="/order.do">Kitchen</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/ledge.do">Check Out</a>
+                            <a class="nav-link" href="/ledge.do">Ledge</a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

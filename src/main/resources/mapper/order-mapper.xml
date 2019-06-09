@@ -16,7 +16,7 @@
         inner join tbl_user on tbl_order.user_id = tbl_user.user_id
         inner join tbl_menu on tbl_order_detail.menu_id = tbl_menu.menu_id
         order by order_id ASC;
-<!--        select order_id, user_id, message, total_cost, cooking_status from tbl_order-->
+        <!--        select order_id, user_id, message, total_cost, cooking_status from tbl_order-->
     </select>
 
     <select id="findById" parameterType="int" resultType="com.system.restaurant.domain.Order">
