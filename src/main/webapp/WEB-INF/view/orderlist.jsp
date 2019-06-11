@@ -3,7 +3,7 @@
        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
        <html lang="en">
        <head>
-           <title>Order Page</title>
+           <title>Restaurant Web Order System</title>
            <meta charset="utf-8">
            <meta name="viewport" content="width=device-width, initial-scale=1">
            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -11,43 +11,47 @@
            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-           <style>
-               .waiter { width: 100px;}
-               .menu_name { width: 100px;}
-               .message { width: 150px;}
-               .cooking_status { width: 90px;}
-               table {text-align: center; border: 1px solid #dddddd}
-               thead {background-color: #fafafa; text-align: center;}
-           </style>
+               <style>
+                    #order_detail_no {width: 200px;}
+                    #menu_name {width: 200px;}
+                    #order_detail_no {width: 200px;}
+                    table {text-align: center; border: 1px solid #dddddd}
+                    thead {background-color: #fafafa; text-align: center;}
+               </style>
        </head>
        <body>
-            <script>
-
-            </script>
-        
-      <div class="container">
+        <br>
+     <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="/terminal.do">Restaurant Web Order System</a>
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/terminal.do">Terminal</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/order.do">Kitchen</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/ledge.do">Ledge</a>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a class="nav-link" href="/user.do">User</a></li>
-                        <li><a class="nav-link" href="/menu.do">Menu</a></li>
-                    </ul>
+                
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/terminal.do">Terminal</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/order.do">Kitchen</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/ledge.do">Ledge<span class="sr-only">(current)</span></a>
+                            </li>
+                            <c:if test="${sessionScope.user.user_type == 'admin'}">
+                            <li><a class="nav-link" href="/user.do">User</a></li>
+                            <li><a class="nav-link" href="/menu.do">Menu</a></li>
+                            </c:if>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <c:if test="${not empty sessionScope.user.user_login}">
+                                <li class="active"><a class="nav-link" href="#"><c:out value="${sessionScope.user.user_login}"/></a></li>
+                                <li><a class="nav-link" href="/logout">Sign out</a></li>
+                            </c:if>
+                        </ul>
             </nav>
         <br>
 
-           <h1>Kitchen Page</h1>
+           <h2>Kitchen Page</h2>
            <hr/>
+
 
            <table class="table" style="text-align: center; border: 1px solid #dddddd" id="mytable">
                <thead>

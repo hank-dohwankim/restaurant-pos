@@ -1,43 +1,56 @@
 <%@ page language="java" isELIgnored="false" contentType="text/html;charset=utf-8"
-    pageEncoding="utf-8" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+                pageEncoding="utf-8" %>
+       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+       <html lang="en">
+       <head>
+           <title>Restaurant Web Order System</title>
+           <meta charset="utf-8">
+           <meta name="viewport" content="width=device-width, initial-scale=1">
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<html>
- <head>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
- </head>
- <style>
-      table {text-align: center; border: 1px solid #dddddd}
-      thead {background-color: #fafafa; text-align: center;}
- </style>
- </head>
- <body>
-
-    <div class="container">
+               <style>
+                    #order_detail_no {width: 200px;}
+                    #menu_name {width: 200px;}
+                    #order_detail_no {width: 200px;}
+                    table {text-align: center; border: 1px solid #dddddd}
+                    thead {background-color: #fafafa; text-align: center;}
+               </style>
+       </head>
+       <body>
+        <br>
+     <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="/terminal.do">Restaurant Web Order System</a>
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/terminal.do">Terminal</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/order.do">Kitchen</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/ledge.do">Ledge</a>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a class="nav-link" href="/user.do">User</a></li>
-                        <li><a class="nav-link active" href="/menu.do">Menu</a></li>
-                    </ul>
+                
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/terminal.do">Terminal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/order.do">Kitchen</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/ledge.do">Ledge<span class="sr-only">(current)</span></a>
+                            </li>
+                            <c:if test="${sessionScope.user.user_type == 'admin'}">
+                            <li><a class="nav-link" href="/user.do">User</a></li>
+                            <li class="active"><a class="nav-link" href="/menu.do">Menu</a></li>
+                            </c:if>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <c:if test="${not empty sessionScope.user.user_login}">
+                                <li class="active"><a class="nav-link" href="#"><c:out value="${sessionScope.user.user_login}"/></a></li>
+                                <li><a class="nav-link" href="/logout">Sign out</a></li>
+                            </c:if>
+                        </ul>
             </nav>
         <br>
 
-  <h1>Menu Management</h1>
+           <h2>Menu List Page</h2>
+           <hr/>
   <hr/>
     <table class="new" style="text-align: center; border: 1px solid #dddddd">
         <tr>
@@ -202,15 +215,20 @@ $(document).ready(function () {
       url: "./menus",
       dataType: "json",  // return type
       success: function (response) {
-        // $.each(response, function (indexInArray, valueOfElement) {
-        //     str += '<li data-id="'+ valueOfElement.menu_id + '"> ' + valueOfElement.menu_id + ' / ' + valueOfElement.menu_name + ' / ' + valueOfElement.menu_price + ' / ' + valueOfElement.cooking_time + '</li>';
-        // });
-        // $('.menus-list').html(str);
-      location.href = "/menu.do";
-
+        debugger
+        $.each(response, function (indexInArray, valueOfElement) {
+            str += '<tr>';
+            str += '    <td>' + valueOfElement.menu_id + '</td>';
+            str += '    <td>' + valueOfElement.menu_name + '</td>';
+            str += '    <td>' + valueOfElement.menu_price + '</td>';
+            str += '    <td>' + valueOfElement.cooking_time + '</td>';
+            str += '<tr>';
+        });
+        $('.table > tbody').html(str);
+        // location.href = "/user.do";
       }
     });
-  } // getmenuList
+  } // getuserList
 });  // doc REady
 
 </script>

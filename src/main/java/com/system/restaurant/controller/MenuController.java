@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class MenuController {
 
     @Resource
+    // name 으로 DI 를 가능케 한다. Bean 을 생성하며 singleton 이 자동으로 적용된다.
     // 객체 생성 없이 getMenuService()를 호출할 수 있다.
     //@Autowired
     MenuService menuService;
@@ -28,30 +29,29 @@ public class MenuController {
      * @param model
      * @return
      */
+
     @RequestMapping(value = "/menu.do", method = RequestMethod.GET)
     // '/menu' 라는 요청이 들어왔을 때 'menuList' method 를 실행한다
-    //public String menuList(Model, model, HttpServletRequest request){
+    // public String menuList(Model, model, HttpServletRequest request){
     public String menuList(ModelMap model) {
         /*Menu 클래스의 'ModelMap model' -> menuList() method 실행 후
          View 에서 활용되는 데이터 담고 있는 object*/
 
-        /*menuList 라는 command object 를 생성, 이 object 에 getter 를 이용해서 service 에 전달하는 작업
-        view, controller 등에서 파일에서 menuList.menu_name 등으로 객체의 data 를 가져와서 사용할 수 있다.
-        Spring container 안에서 위와 같은 기능이 동작하도록 지원한다.
+        /*Menu class 속성을 갖는 menuList 라는 command object 를 생성,
+        이 object 에 getter 로 받은 Menu class 의 variable 들을
+        menuList 를 통해 menuService 로 전달한다. 그러면
+        view, controller 에서 menuList.menu_name 등으로 객체의 data 를 가져와서 사용할 수 있다.
+        Spring container 가 위 기능이 동작하도록 지원한다.
         */
 
-        /* 개발자는 Model object 에 데이터를 담아서 DispatcherServlet 에 전달한다.
+        /* 개발자는 Model object 에 데이터를 담아 DispatcherServlet 에 전달한다.
             DispatcherServlet 에 전달된 Model 데이터는 View 에서 가공되어 client 에게
             응답처리된다.
          */
 
-        /*Menu 클래스 속성을 갖는 menuList object를 생성한 뒤
-         getter로 받은 Menu class의 variable들을 menuList를 통해 menuService로 전달한다.
-        */
 
-
-        /*@ModelAttribute 를 사용하면 command object 의 이름을 변경할 수 있고, 이렇게 변경된 이름은
-        view 에서 command object 를참조할 때 사용된다.
+        /*@ModelAttribute 를 사용하면 command object(여기서는 menuList)
+         의 이름을 변경할 수 있고, 이렇게 변경된 이름은 view 에서 command object 를참조할 때 사용된다.
         public String menuRemove(@ModelAttribueAttribute('menu') Member member)
         */
         ArrayList<Menu> menuList = menuService.menuList(); //== (menu.getMenuName(),,,,);

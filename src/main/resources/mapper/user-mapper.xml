@@ -34,6 +34,17 @@
         delete from tbl_user where user_id = #{user_id}
     </delete>
 
+    <select id="findByUserLogin" parameterType="java.lang.String" resultType="com.system.restaurant.domain.User">
+        select user_id, user_name, user_login, user_password, user_email, user_type from tbl_user
+        where user_login = #{user_login}
+    </select>
+
+    <select id="findByUserPassword" parameterType="com.system.restaurant.controller.LoginDto"
+            resultType="com.system.restaurant.domain.User">
+        select user_id, user_name, user_login, user_password, user_email, user_type from tbl_user
+        where user_login = #{user_login} and user_password = #{user_password}
+    </select>
+
 </mapper>
 
 
