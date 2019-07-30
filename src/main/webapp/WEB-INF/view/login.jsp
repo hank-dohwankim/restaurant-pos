@@ -37,8 +37,8 @@ $(document).ready(function () {
             type: "post",
             url: "/doLogin",
             data: JSON.stringify(obj),
-            dataType: "json",                 // 받을때 json 
-            contentType: "application/json",  // 넘길때 json
+            dataType: "json",                 // GET json
+            contentType: "application/json",  // SET json
             success: function (response) {
                 if(response.message == 'LOGIN') {
                     location.href='./terminal.do';

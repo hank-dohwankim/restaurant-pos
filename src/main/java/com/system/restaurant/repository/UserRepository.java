@@ -17,10 +17,10 @@ public interface UserRepository {
     int delete(int user_id);
 
 
-    //------ 로그인 아이디로 조회
+    //------ CHECK LOGIN ID
     User findByUserLogin(String user_login);
 
 
-    //------ 로그인 패스워드 조회
+    //------ CHECK LOGIN PASSWORD
     User findByUserPassword(LoginDto loginDto);
 }

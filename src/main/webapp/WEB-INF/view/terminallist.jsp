@@ -112,7 +112,7 @@
              $('[name="order_message"]').val();
 
 
-            // 메뉴선택시 가격, 조리시간 불러오기
+            // GET MENU PRICE WHEN SELECT MENU
              $('[name="menu_id"]').on('change', function() {
 
                 $.ajax({
@@ -125,9 +125,9 @@
                         $('[name="message"]').focus();
                     }
                 });  // ajax
-             });  // 메뉴선택시 가격, 조리시간 불러오기
+             });  // GET MENU PRICE WHEN SELECT MENU
 
-            // 유저 선택시 user_id 불러오기
+            // GET USER_ID WHEN SELECT USER
              $('[name="user_id"]').on('change', function() {
 
                 $.ajax({
@@ -137,7 +137,7 @@
                         $('[name="user_id"]').val(response.user_id);
                     }
                 }); 
-             });  // 유저 선택시 user_id 불러오기
+             });  // GET USER_ID WHEN SELECT USER
 
             $('#btn-menu-save').on('click', function() {
 
@@ -172,7 +172,7 @@
 
             });
 
-             // 주문 확인
+             // ORDER CHECK
              $('[name="btn-order"]').on('click', function() {
 
                if(orders.length == 0) {
@@ -204,9 +204,8 @@
                  }
 
                });
-             }); // 신규 저장 버튼 이벤트
+             }); // ADD NEW BUTTON EVENT
            }); // doc ready
             </script>
        </div>
        </body>
-       </html>

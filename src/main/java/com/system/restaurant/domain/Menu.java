@@ -1,8 +1,5 @@
 package com.system.restaurant.domain;
 
-import lombok.Data;
-
-
 public class Menu {
 
     private int menu_id;

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-@Service // Service 역할을 하는 bean 임을 선언한다.
+@Service
 public class TerminalService implements TerminalServiceIF {
 
     @Resource
@@ -65,9 +65,7 @@ public class TerminalService implements TerminalServiceIF {
                 orderDetailRepository.post(orderDetail);
             }
 
-
         return 1;
-//        return terminalRepository.post(terminalData);
     }
 
     @Override

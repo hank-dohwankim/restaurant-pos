@@ -22,7 +22,7 @@
 <!--    </mvc:interceptors>-->
 
 
-    <!-- 데이터 소스 설정  -->
+    <!-- DATA SOURCE SETUP -->
 
     <bean id="dataSourceSpied" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -31,7 +31,7 @@
         <property name="password" value="root"/>
     </bean>
 
-    <!-- Query 로그를 확인하기 위한 설정 -->
+    <!-- Query LOG CHECK-->
     <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
         <constructor-arg ref="dataSourceSpied" />
         <property name="logFormatter">
@@ -42,7 +42,7 @@
         </property>
     </bean>
 
-    <!-- MyBatis SqlSessionFactory 설정. DB 연결과 SQL 실행에 대한 모든 동작을 관장하는 object -->
+    <!-- MyBatis SqlSessionFactory SETUP. DB CONNECTION AND SQL ACCESS object -->
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
@@ -53,12 +53,12 @@
 
     <mybatis:scan base-package="com.system.restaurant.repository"/>
 
-    <!-- 트랜젝션 매니저 -->
+    <!-- TRANSACTION MANAGER -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSourceSpied"></property>
     </bean>
 
-    <!-- @Transactional 애노테이션을 sacn하기 위한 설정 -->
+    <!-- @Transactional ANNOTATION SCAN -->
     <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 
     <context:annotation-config/>

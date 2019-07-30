@@ -183,10 +183,10 @@ $(document).ready(function () {
         getuserList();
       }
     });
-  }); // 신규 저장 버튼 이벤트
+  }); // ADD NEW BUTTON EVENT
 
 
-  // 1건 조회
+  // SELECT BY ID
   $(document).on('click','li', function() {
   // $('li').on('click', function() {
     console.log($(this).data('id'));
@@ -206,7 +206,7 @@ $(document).ready(function () {
     });
   });
 
-  // 수정
+  // MODIFY
   $('#btn-user-save2').on('click', function() {
 
     var obj = {
@@ -233,7 +233,7 @@ $(document).ready(function () {
   });
 
 
-  // 삭제
+  // DELETE
   $('#btn-user-delete').on('click', function() {
     $.ajax({
       type: "DELETE",

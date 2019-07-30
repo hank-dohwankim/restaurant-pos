@@ -128,7 +128,7 @@ $(document).ready(function () {
   $('[name="menu_price"]').val();
   $('[name="cooking_time"]').val();
 
-  // 신규 저장 버튼 이벤트
+  // ADD NEW BUTTON EVENT
   $('#btn-menu-save').on('click', function() {
 
     var dataObj = {
@@ -149,10 +149,10 @@ $(document).ready(function () {
         getmenuList();
       }
     });
-  }); // 신규 저장 버튼 이벤트
+  }); // ADD NEW BUTTON EVENT
 
 
-  // // 1건 조회
+  // // CHECK BY ID
   // $(document).on('click','li', function() {
   // // $('li').on('click', function() {
   //   console.log($(this).data('id'));
@@ -170,7 +170,7 @@ $(document).ready(function () {
   //   });
   // });
 
-  // 수정
+  // MODIFY
   $('#btn-menu-save2').on('click', function() {
 
     var obj = {
@@ -195,7 +195,7 @@ $(document).ready(function () {
   });
 
 
-  // 삭제
+  // DELETE
   $('#btn-menu-delete').on('click', function() {
     $.ajax({
       type: "DELETE",

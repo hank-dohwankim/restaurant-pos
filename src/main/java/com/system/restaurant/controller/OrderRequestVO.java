@@ -5,7 +5,6 @@ import com.system.restaurant.domain.OrderDetail;
 
 import java.util.List;
 
-//@Data
 public class OrderRequestVO extends Order  {
 
     private List<OrderDetail> order_detail;
