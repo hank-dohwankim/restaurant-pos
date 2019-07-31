@@ -1,7 +1,8 @@
 <h2>
   <a href="https://youtu.be/cgBGUhNTda4">Restaurant Web Order System
 </h2>
-<p>Check How this app is working.</p></a>
+<p>
+Click on this video link to see how this app works.</p></a>
 
 <p> Restaurant Web Order System is a web application that helps user to easily order and manage it in the restaurant.</p>
 <ul>
