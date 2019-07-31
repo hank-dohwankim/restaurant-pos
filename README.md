@@ -13,6 +13,6 @@ Domain Driven Design, RESTful APIs, MVC, HTML/CSS, JQuery, XML, JSON, MySQL </li
     <br><b>- Kitchen</b> is the page for helping Chef to manage cooking status. Servers can check cooking status through this page. 
     <br><b>- Ledge</b> is the page to show receipt contains ordered menu and total amount of cost.</li>
   <li>
-    <b>User access authority:<b> Only the user designated as Admin can check, change and delete items in the menu / user page.
+    <b>User access authority :</b> Only the user designated as Admin can check, change and delete items in the menu / user page.
   </li>
 </ul>
